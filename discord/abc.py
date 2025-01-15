@@ -49,7 +49,7 @@ from typing import (
 
 from .object import OLDEST_OBJECT, Object
 from .context_managers import Typing
-from .enums import ApplicationCommandType, ChannelType, InviteTarget, NetworkionType
+from .enums import ApplicationCommandType, ChannelType, InviteTarget, NetworkConnectionType
 from .errors import ClientException
 from .mentions import AllowedMentions
 from .permissions import PermissionOverwrite, Permissions
@@ -70,7 +70,7 @@ __all__ = (
     'PrivateChannel',
     'GuildChannel',
     'Messageable',
-    'able',
+    'Connectable',
     'ApplicationCommand',
 )
 
