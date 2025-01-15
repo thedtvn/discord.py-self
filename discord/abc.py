@@ -49,7 +49,7 @@ from typing import (
 
 from .object import OLDEST_OBJECT, Object
 from .context_managers import Typing
-from .enums import ApplicationCommandType, ChannelType, InviteTarget, NetworkConnectionType
+from .enums import ApplicationCommandType, ChannelType, InviteTarget, NetworkionType
 from .errors import ClientException
 from .mentions import AllowedMentions
 from .permissions import PermissionOverwrite, Permissions
@@ -70,7 +70,7 @@ __all__ = (
     'PrivateChannel',
     'GuildChannel',
     'Messageable',
-    'Connectable',
+    'able',
     'ApplicationCommand',
 )
 
@@ -2674,6 +2674,7 @@ class Connectable(Protocol):
         _channel: Optional[Connectable] = None,
         self_deaf: bool = False,
         self_mute: bool = False,
+        self_video=False
     ) -> T:
         """|coro|
 
@@ -2731,7 +2732,7 @@ class Connectable(Protocol):
         state._add_voice_client(key_id, voice)
 
         try:
-            await voice.connect(timeout=timeout, reconnect=reconnect, self_deaf=self_deaf, self_mute=self_mute)
+            await voice.connect(timeout=timeout, reconnect=reconnect, self_deaf=self_deaf, self_mute=self_mute, self_video=self_video)
         except asyncio.TimeoutError:
             try:
                 await voice.disconnect(force=True)
